@@ -39,9 +39,7 @@ Set up your environment to which you will deploy code.
 ### Step 3: Pick AWS Kubernetes as a Service, or build your own Kubernetes cluster.
 Use Ansible or CloudFormation to build your “infrastructure”; i.e., the Kubernetes Cluster.
 
-***First, [it is created a sample cluster](!https://logz.io/blog/amazon-eks-cluster/)***
-
-***Note that, to manage eks form cloud9 [these steps](!https://eksworkshop.com/prerequisites/k8stools/) should be followed. Basically adding the administrationaccess role isntead of teh eks related to the ec2***
+***First, it is tried with [this cluster](!https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html). Note that, to manage eks form cloud9 [these steps](!https://eksworkshop.com/prerequisites/k8stools/) should be followed. Basically adding the administrationaccess role instead of teh eks related to the ec2***
 
 It should create the EC2 instances (if you are building your own), set the correct networking settings, and deploy software to these instances.
 
