@@ -15,8 +15,8 @@ In this project I have built a CI/CD pipeline for a microservices application fo
 
 1. Choose a github repo.
 
-- [ ] Choose a react app to lint. The [front end microservice that allow to visualize Spanish elections](https://github.com/ablazleon/ElectoDB-18-frontend), is [dockerized and lint](https://github.com/ablazleon/Electo-frontend.git).
-- [ ] With a dockerfile
+- [x] Choose an app to lint. It is choosen a [flask api boilerplate for image recognition](https://github.com/ablazleon/gorrilla).
+- [x] With a dockerfile
 
 2. Jenkins on an ec2
 - [ ] Test pipeline: photo of a failing linting.
