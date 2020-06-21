@@ -15,7 +15,7 @@ In this project I have built a CI/CD pipeline for a microservices application fo
 
 1. Choose a github repo.
 
-- [ ] Choose a [react app](https://github.com/devias-io/react-material-dashboard.git) to lint.
+- [ ] Choose a react app to lint. The [front end microservice that allow to visualize Spanish elections](https://github.com/ablazleon/ElectoDB-18-frontend), is [dockerized and lint](https://github.com/ablazleon/Electo-frontend.git).
 - [ ] With a dockerfile
 
 2. Jenkins on an ec2
