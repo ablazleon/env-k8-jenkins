@@ -15,24 +15,24 @@ In this project I have built a CI/CD pipeline for a microservices application fo
 
 1. Choose a github repo.
 
-- Maybe a react app to lint
-- With a dockerfile
+- [ ] Maybe a react app to lint
+- [ ] With a dockerfile
 
 2. Jenkins on an ec2
-- Test pipeline: photo of a failing linting.
+- [ ] Test pipeline: photo of a failing linting.
 
 3. EKS. 
-- Create a cluster: photo that it works manually
-- Instances name rolling deployment
-- The deployment works.
-
-
+- [ ] Create a cluster: photo that it works manually
+- [ ] Instances name rolling deployment
+- [ ] The deployment works.
 
 ## Motivation
 
 I've done software projects in hackathons or just project during college. I've realized that implementing automating pipelines for continuous integration and continuous deplyoment guarantees a quality of the software product that cannot be provided by manually assessing this quality. So, the aim of this project is fitting [the rubric of the capstone project](https://review.udacity.com/#!/rubrics/2577/view), with the final objective of creates a code that allows to easily automates this integration and deployment of a software repo in github. In general, a software is been identified to propose a certain ***value***. Then automating piepline should be provided (see image). Looking at the big picture, only three pieces are implemented in this repo:
 
 ![software product pipeline big picture](https://github.com/chanakaudaya/solutions-architecture-patterns/blob/master/vendor-neutral/images/Enterprise-CICD-Pattern.png)
+
+Big picture from https://github.com/chanakaudaya/solutions-architecture-patterns.
 
 1- A ***jenkinsfile***. THere are many tools for implementing pipelines (as Jenkins, Travis CI, Circle CI, Gitlab. . .) In this repo it is proposed a jenkinsfile running in an ec2 instance. ALthough, there may be some solutions cheaper, as Circle CI or bid stop isntances.
 
