@@ -1,10 +1,22 @@
 # Production Environment
 
-In this project I have built a CI/CD pipeline for a microservices application for different deployment strategies. This is the capstone project of the Udacity Cloud DevOps Nanodegree Program.
+In this project I have built a CI/CD pipeline for a microservices application for different deployment strategies. This is my proposal of capstone project of the Udacity Cloud DevOps Nanodegree Program.
 
-I've done software projects in hackathons or just project during college. I've realized that implementing CI/CD pipelines guarantees a quality of the software product that cannot be provided by manually assessing this quality. So, the aim of this project is fitting [the rubric of the capstone project](https://review.udacity.com/#!/rubrics/2577/view) , with the final objective of automating the provision of a CI/CD environment towards a software repo, in a way imitating the service of gitlab autodevops. 
+## Motivation
 
-In this project, it has been chosen AWS as the cloud provider, jenkins as the CI/CD automation tool and [this react.js dashboard](https://github.com/ablazleon/ElectoDB-18-frontend) as a demo. 
+I've done software projects in hackathons or just project during college. I've realized that implementing automating pipelines for continuous integration and continuous deplyoment guarantees a quality of the software product that cannot be provided by manually assessing this quality. So, the aim of this project is fitting [the rubric of the capstone project](https://review.udacity.com/#!/rubrics/2577/view), with the final objective of creates a code that allows to easily automates this integration and deployment of a software repo in github. In general, a software is been identified to propose a certain ***value***. Then automating piepline should be provided (see image). Looking at the big picture, only three pieces are implemented in this repo:
+
+![software product pipeline big picture](https://github.com/chanakaudaya/solutions-architecture-patterns/blob/master/vendor-neutral/images/Enterprise-CICD-Pattern.png)
+
+1- A ***jenkinsfile***. THere are many tools for implementing pipelines (as Jenkins, Travis CI, Circle CI, Gitlab. . .) In this repo it is proposed a jenkinsfile running in an ec2 instance. ALthough, there may be some solutions cheaper, as Circle CI or bid stop isntances.
+
+In this sample it is proposed:
+
+Install -> lint -> test -> Rolling deployments (on certain environments)
+
+2- A ***description file*** for k8: as the software product is structured in microservices, docker is used to conteinarized the different services, and so the development, testing and production environment can be proposed on a kubernetes cluster.
+
+3- ***AWS***: to adapat the demand, certain cloud services are used.
 
 ## 1. Installation
 ## 2. Usage
@@ -21,7 +33,7 @@ In this project, it has been chosen AWS as the cloud provider, jenkins as the CI
 ### Step 1: Propose and Scope the Project
 Plan what your pipeline will look like.
 
-***install -> lint***
+***Install -> lint -> test -> Rolling deployments (on certain environments)***
 
 Decide which options you will include in your Continuous Integration phase.
 Use Jenkins.
@@ -33,6 +45,8 @@ For the Docker application you can either use an application which you come up w
 ### Step 2: Use Jenkins, and implement blue/green or rolling deployment.
 
 Create your Jenkins master box with either Jenkins and install the plugins you will need.
+
+*** Blue ocean is installed ***
 
 Set up your environment to which you will deploy code.
 
