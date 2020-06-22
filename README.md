@@ -34,9 +34,11 @@ I've done software projects in hackathons or just project during college. I've r
 
 Big picture from https://github.com/chanakaudaya/solutions-architecture-patterns.
 
-1- A ***jenkinsfile***. THere are many tools for implementing pipelines (as Jenkins, Travis CI, Circle CI, Gitlab. . .) In this repo it is proposed a jenkinsfile running in an ec2 instance. ALthough, there may be some solutions cheaper, as Circle CI or bid stop isntances.
+1- A ***jenkinsfile***. THere are many tools for implementing pipelines (as Jenkins, Travis CI, Circle CI, Gitlab. . .) In this repo it is proposed a jenkinsfile running in an ec2 instance. After setting an ec2 with jenkins, it is deployed Jenkins X. It is realized it offers certain better cabailities as gitops and this bukernetes orientation using helm charts. So, it is configure some Jenkins X environments, following their decoumentation architecture
 
-In this sample it is proposed:
+![Jenkins X](!https://jenkins-x.io/images/jx-arch.png)
+
+In this sample it is proposed a pipeline aproximate to this one:
 
 Install -> lint -> test -> Rolling deployments (on certain environments)
 
@@ -74,6 +76,7 @@ Create your Jenkins master box with either Jenkins and install the plugins you w
 *** Blue ocean is installed ***
 
 Set up your environment to which you will deploy code.
+
 
 #### Step 3: Pick AWS Kubernetes as a Service, or build your own Kubernetes cluster.
 Use Ansible or CloudFormation to build your “infrastructure”; i.e., the Kubernetes Cluster.
