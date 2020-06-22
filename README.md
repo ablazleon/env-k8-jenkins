@@ -91,7 +91,7 @@ It should create the EC2 instances (if you are building your own), set the corre
 
 As a final step, the Kubernetes cluster will need to be initialized. The Kubernetes cluster initialization can either be done by hand, or with Ansible/Cloudformation at the student’s discretion.
 
-*** But finally, I discovered Jenkins X had a cli command to created this cluster. I tired creating one in EKS, but i was unable.***
+*** But finally, I discovered Jenkins X had a cli command to created this cluster. I tried creating one in EKS, but i was unable.***
 
 ![EKS failed when linking](https://github.com/ablazleon/env-k8-jenkins/blob/master/eks/ProblemEKS.png)
 
