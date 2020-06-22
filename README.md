@@ -36,7 +36,7 @@ Big picture from https://github.com/chanakaudaya/solutions-architecture-patterns
 
 1- A ***jenkinsfile***. THere are many tools for implementing pipelines (as Jenkins, Travis CI, Circle CI, Gitlab. . .) In this repo it is proposed a jenkinsfile running in an ec2 instance. After setting an ec2 with jenkins, it is deployed Jenkins X. It is realized it offers certain better cabailities as gitops and this bukernetes orientation using helm charts. So, it is configure some Jenkins X environments, following their decoumentation architecture
 
-![Jenkins X](!https://jenkins-x.io/images/jx-arch.png)
+![Jenkins X](https://jenkins-x.io/images/jx-arch.png)
 
 In this sample it is proposed a pipeline aproximate to this one:
 
