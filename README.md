@@ -91,9 +91,9 @@ It should create the EC2 instances (if you are building your own), set the corre
 
 As a final step, the Kubernetes cluster will need to be initialized. The Kubernetes cluster initialization can either be done by hand, or with Ansible/Cloudformation at the student’s discretion.
 
-*** So it is isntalled jenkins X and it is then created a cluster on eks
-*** THen is setup a CI pipeline wiht a python buildpack for the repo and test it** 
+*** But finally, I discovered Jenkins X had a cli command to created this cluster. I tired creating one in EKS, but i was unable.***
 
+![EKS failed when linking](https://github.com/ablazleon/env-k8-jenkins/blob/master/eks/ProblemEKS.png)
 
 #### Step 4: Build your pipeline
 
