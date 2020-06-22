@@ -18,7 +18,8 @@ In this project I have built a CI/CD pipeline for a microservices application fo
 - [x] Choose an app to lint. It is choosen a [flask api boilerplate for image recognition](https://github.com/ablazleon/gorrilla).
 - [x] With a dockerfile
 
-2. Jenkins on an ec2
+2. Jenkins 
+- [X] Tried on an EC" and discovered the benefits of Jenkins X. Setup the repo for continuous integration.
 - [ ] Test pipeline: photo of a failing linting.
 
 3. EKS. 
@@ -87,6 +88,10 @@ It should create the EC2 instances (if you are building your own), set the corre
 
 As a final step, the Kubernetes cluster will need to be initialized. The Kubernetes cluster initialization can either be done by hand, or with Ansible/Cloudformation at the student’s discretion.
 
+*** So it is isntalled jenkins X and it is then created a cluster on eks
+*** THen is setup a CI pipeline wiht a python buildpack for the repo and test it** 
+
+
 #### Step 4: Build your pipeline
 
 Construct your pipeline in your GitHub repository.
@@ -106,6 +111,8 @@ Linting screenshot to show the Linter working properly.
 Perform builds on your pipeline.
 
 Verify that your pipeline works as you designed it.
+
+*** Then using helm chart is deployed the service **
 
 Take a screenshot of the Jenkins pipeline showing deployment and a screenshot of your AWS EC2 page showing the newly created (for blue/green) or modified (for rolling) instances. Make sure you name your instances differently between blue and green deployments.
 
