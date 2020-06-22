@@ -75,7 +75,9 @@ For the Docker application you can either use an application which you come up w
 
 Create your Jenkins master box with either Jenkins and install the plugins you will need.
 
-*** Blue ocean is installed ***
+*** I installed jenkins, but discovered this git ops features of jenkins X, may more valuable to show, so I continue the pipelines tuning with jenkins X ***
+
+![Jenkins installed in an EC2](https://github.com/ablazleon/env-k8-jenkins/blob/master/eks/Jenkins.PNG)
 
 Set up your environment to which you will deploy code.
 
