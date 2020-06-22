@@ -136,6 +136,7 @@ Take a screenshot of the Jenkins pipeline showing deployment and a screenshot of
 
 
 - [ ] ***The Docker container is deployed to a Kubernetes cluster:*** The cluster is deployed with CloudFormation or Ansible. This should be in the source code of the student’s submission.
+As the evolution of jenkins, jenkins X seems that automates more the relation to k8s, it is used Jenkins X. Firstly, I followed this recommendation for setting JX with EKS but i found this error after booting. 
 - [ ] ***Use Blue/Green Deployment or a Rolling Deployment successfully*** The project performs the correct steps to do a blue/green or a rolling deployment into the environment selected. Student demonstrates the successful completion of chosen deployment methodology with screenshots.
 
 #### Bonus
