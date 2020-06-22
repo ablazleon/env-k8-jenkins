@@ -8,6 +8,7 @@ In this project I have built a CI/CD pipeline for a microservices application fo
 ## 4. How it was developed
 ### a. Requirement steps
 ### b. Roadmap
+### c. Rubric
 
 ---------------
 
@@ -116,4 +117,22 @@ Verify that your pipeline works as you designed it.
 
 Take a screenshot of the Jenkins pipeline showing deployment and a screenshot of your AWS EC2 page showing the newly created (for blue/green) or modified (for rolling) instances. Make sure you name your instances differently between blue and green deployments.
 
+### c. Rubric
+
+#### Set up pipeline
+
+- [x] ***Create Github repository with project code:*** All project code is stored in a GitHub repository and a link to the repository has been provided for reviewers.
+- [ ] ***Use image repository to store Docker images***The project uses a centralized image repository to manage images built in the project. After a clean build, images are pushed to the repository.
+
+#### Build Docker Container
+
+
+- [ ] ***Execute linting step in code pipeline:*** Code is checked against a linter as part of a Continuous Integration step (demonstrated w/ two screenshots).
+- [ ] ***Build a Docker container in a pipeline*** The project takes a Dockerfile and creates a Docker container in the pipeline.
+
+#### Successful Deployment
+
+
+- [ ] ***The Docker container is deployed to a Kubernetes cluster:*** The cluster is deployed with CloudFormation or Ansible. This should be in the source code of the student’s submission.
+- [ ] ***Use Blue/Green Deployment or a Rolling Deployment successfully*** The project performs the correct steps to do a blue/green or a rolling deployment into the environment selected. Student demonstrates the successful completion of chosen deployment methodology with screenshots.
 
