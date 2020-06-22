@@ -136,3 +136,6 @@ Take a screenshot of the Jenkins pipeline showing deployment and a screenshot of
 - [ ] ***The Docker container is deployed to a Kubernetes cluster:*** The cluster is deployed with CloudFormation or Ansible. This should be in the source code of the student’s submission.
 - [ ] ***Use Blue/Green Deployment or a Rolling Deployment successfully*** The project performs the correct steps to do a blue/green or a rolling deployment into the environment selected. Student demonstrates the successful completion of chosen deployment methodology with screenshots.
 
+#### Bonus
+
+- [ ] Perform additional CI steps in the pipeline outside of just linting: ***as i have integrated jenkins X is easier to include additional CI steps than with the initial Jenkins that I setup, beacuse of the jenkins X buils packs***
