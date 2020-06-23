@@ -20,8 +20,8 @@ In this project I have built a CI/CD pipeline for a microservices application fo
 - [x] With a dockerfile
 
 2. Jenkins 
-- [X] Tried on an EC" and discovered the benefits of Jenkins X. Setup the repo for continuous integration.
-- [ ] Test pipeline: photo of a failing linting.
+- [X] Tried on an EC2 and discovered the benefits of Jenkins X. Setup the repo for continuous integration.
+- [ ] Test pipeline: photo of a failing linting. WIth prow.
 
 3. EKS. 
 - [ ] Create a cluster: photo that it works manually
@@ -77,6 +77,8 @@ jx create quickstart
 ```
 
 And choose python-http
+
+THen is check that the environments work and than the application is running
 
 
 
