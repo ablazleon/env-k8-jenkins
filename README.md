@@ -53,6 +53,26 @@ Install -> lint -> test -> Rolling deployments (on certain environments)
 -------------------
 
 ## 1. Installation
+
+For setting this pipeline I:
+
+First, download jenkins x form it official repo.
+
+THen I created a cluster
+
+```
+jx create cluster eks --cluster-name jenkinsxeks --skip-installation
+```
+
+It is initialize jenkins x with a jx-requirements.yml.
+
+```
+jx boot -r  jx-requirements.yml
+```
+
+
+
+
 ## 2. Usage
 ## 3. Contributing
 ## 4. How it was developed
