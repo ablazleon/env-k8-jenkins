@@ -83,6 +83,9 @@ THen is check that the environments work and than the application is running
 
 
 ## 2. Usage
+
+THe problem is that as jenkins X follows the serverless paradigm, I dpeloyed deck isntead of jenkins X blue Ocean as it is serverles  cost less resources.
+
 ## 3. Contributing
 ## 4. How it was developed
 
