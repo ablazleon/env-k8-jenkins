@@ -61,7 +61,7 @@ First, download jenkins x form it official repo.
 THen I created a cluster
 
 ```
-jx create cluster eks --cluster-name jenkinsxeks --skip-installation
+jx create cluster eks --skip-installation
 ```
 
 It is initialize jenkins x with a jx-requirements.yml.
@@ -70,6 +70,13 @@ It is initialize jenkins x with a jx-requirements.yml.
 jx boot -r  jx-requirements.yml
 ```
 
+Then, it is initialized this app:
+
+```
+jx create quickstart
+```
+
+And choose python-http
 
 
 
