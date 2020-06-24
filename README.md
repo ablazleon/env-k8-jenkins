@@ -58,10 +58,13 @@ For setting this pipeline I:
 
 First, download jenkins x form it official repo.
 
-THen I created a cluster
+Then I created a cluster
+
+For eks or gke
 
 ```
 jx create cluster eks --skip-installation
+jx create cluster gke --cluster-name xxxxx --skip-installation
 ```
 
 It is initialize jenkins x with a jx-requirements.yml.
