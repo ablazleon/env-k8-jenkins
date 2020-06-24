@@ -20,8 +20,8 @@ In this project I have built a CI/CD pipeline for a microservices application fo
 - [x] With a dockerfile
 
 2. Jenkins 
-- [X] Tried on an EC" and discovered the benefits of Jenkins X. Setup the repo for continuous integration.
-- [ ] Test pipeline: photo of a failing linting.
+- [X] Tried on an EC2 and discovered the benefits of Jenkins X. Setup the repo for continuous integration.
+- [ ] Test pipeline: photo of a failing linting. WIth prow.
 
 3. EKS. 
 - [ ] Create a cluster: photo that it works manually
@@ -61,7 +61,7 @@ First, download jenkins x form it official repo.
 THen I created a cluster
 
 ```
-jx create cluster eks --cluster-name jenkinsxeks --skip-installation
+jx create cluster eks --skip-installation
 ```
 
 It is initialize jenkins x with a jx-requirements.yml.
@@ -70,10 +70,22 @@ It is initialize jenkins x with a jx-requirements.yml.
 jx boot -r  jx-requirements.yml
 ```
 
+Then, it is initialized this app:
+
+```
+jx create quickstart
+```
+
+And choose python-http
+
+THen is check that the environments work and than the application is running
 
 
 
 ## 2. Usage
+
+THe problem is that as jenkins X follows the serverless paradigm, I dpeloyed deck isntead of jenkins X blue Ocean as it is serverles  cost less resources.
+
 ## 3. Contributing
 ## 4. How it was developed
 
