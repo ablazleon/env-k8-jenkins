@@ -16,12 +16,12 @@ In this project I have built a CI/CD pipeline for a microservices application fo
 
 1. Choose a github repo.
 
-- [x] Choose an app to lint. It is choosen a [flask api boilerplate for image recognition](https://github.com/ablazleon/gorrilla).
+- [x] Choose an app to lint. It is choosen a simple python app.
 - [x] With a dockerfile
 
 2. Jenkins 
 - [X] Tried on an EC2 and discovered the benefits of Jenkins X. Setup the repo for continuous integration.
-- [ ] Test pipeline: photo of a failing linting. WIth prow.
+- [ ] Test pipeline: photo of a failing linting. 
 
 3. EKS. 
 - [ ] Create a cluster: photo that it works manually
@@ -58,10 +58,13 @@ For setting this pipeline I:
 
 First, download jenkins x form it official repo.
 
-THen I created a cluster
+Then I created a cluster
+
+For eks or gke
 
 ```
 jx create cluster eks --skip-installation
+jx create cluster gke --cluster-name xxxxx --skip-installation
 ```
 
 It is initialize jenkins x with a jx-requirements.yml.
@@ -73,18 +76,25 @@ jx boot -r  jx-requirements.yml
 Then, it is initialized this app:
 
 ```
-jx create quickstart
+jx create quickstart --git-public
 ```
 
 And choose python-http
 
-THen is check that the environments work and than the application is running
+Then is check that the environments work and than the application is running
 
+
+```
+jx get activities
+jx get application
+```
 
 
 ## 2. Usage
 
 THe problem is that as jenkins X follows the serverless paradigm, I dpeloyed deck isntead of jenkins X blue Ocean as it is serverles  cost less resources.
+
+
 
 ## 3. Contributing
 ## 4. How it was developed
@@ -108,8 +118,6 @@ For the Docker application you can either use an application which you come up w
 Create your Jenkins master box with either Jenkins and install the plugins you will need.
 
 *** I installed jenkins, but discovered this git ops features of jenkins X, may more valuable to show, so I continue the pipelines tuning with jenkins X ***
-
-![Jenkins installed in an EC2](https://github.com/ablazleon/env-k8-jenkins/blob/master/eks/Jenkins.PNG)
 
 Set up your environment to which you will deploy code.
 
@@ -141,6 +149,13 @@ Include with your Linting step both a failed Linting screenshot and a successful
 
 Linting screenshot to show the Linter working properly.
 
+***After creating the qucikstart applcaition is copy and modified, and then applied:***
+
+
+```
+jx import
+```
+
 #### Step 5: Test your pipeline
 
 Perform builds on your pipeline.
@@ -156,12 +171,26 @@ Take a screenshot of the Jenkins pipeline showing deployment and a screenshot of
 #### Set up pipeline
 
 - [x] ***Create Github repository with project code:*** All project code is stored in a GitHub repository and a link to the repository has been provided for reviewers.
-- [ ] ***Use image repository to store Docker images***The project uses a centralized image repository to manage images built in the project. After a clean build, images are pushed to the repository.
+
+These are the repos of the three other environments:
+
+https://github.com/ablazleon/environment-jxgke2-staging
+https://github.com/ablazleon/environment-jxgke2-production
+https://github.com/ablazleon/environment-jxgke2-dev
+
+- [ ] ***Use image repository to store Docker images*** The project uses a centralized image repository to manage images built in the project. After a clean build, images are pushed to the repository.
+
+Yes, I set my dockerhub account for this
+
+https://hub.docker.com/search?q=ablazleon&type=image
 
 #### Build Docker Container
 
 
 - [ ] ***Execute linting step in code pipeline:*** Code is checked against a linter as part of a Continuous Integration step (demonstrated w/ two screenshots).
+
+What I do is override ![the pipeline.yml](https://github.com/jenkins-x-buildpacks/jenkins-x-kubernetes/blob/master/packs/python/pipeline.yaml), with the desire steps in jenkins-x.yml on the repo. 
+
 - [ ] ***Build a Docker container in a pipeline*** The project takes a Dockerfile and creates a Docker container in the pipeline.
 
 #### Successful Deployment
