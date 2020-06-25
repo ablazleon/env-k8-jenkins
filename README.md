@@ -69,7 +69,7 @@ jx create cluster eks --skip-installation
 jx create cluster gke --cluster-name xxxxx --skip-installation
 ```
 
-It is initialize jenkins x with a jx-requirements.yml.
+It is initialize jenkins x with a jx-requirements.
 
 ```
 jx boot -r  jx-requirements.yml
@@ -201,7 +201,7 @@ https://gcr.io/envjenkinsk8udacitycapstone/mynodejx
 
 - [ ] ***Execute linting step in code pipeline:*** Code is checked against a linter as part of a Continuous Integration step (demonstrated w/ two screenshots).
 
-What I do is override ![the pipeline.yml](https://github.com/jenkins-x-buildpacks/jenkins-x-kubernetes/blob/master/packs/python/pipeline.yaml), with the desire steps in jenkins-x.yml on the repo. 
+What I do is override [the pipeline.yml](https://github.com/jenkins-x-buildpacks/jenkins-x-kubernetes/blob/master/packs/python/pipeline.yaml), with the desire steps in jenkins-x.yml on the repo. 
 
 - [ ] ***Build a Docker container in a pipeline*** The project takes a Dockerfile and creates a Docker container in the pipeline.
 
