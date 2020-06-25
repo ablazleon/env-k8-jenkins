@@ -21,22 +21,24 @@ In this project I have built a CI/CD pipeline for a microservices application fo
 
 2. Jenkins 
 - [X] Tried on an EC2 and discovered the benefits of Jenkins X. Setup the repo for continuous integration.
-- [ ] Test pipeline: photo of a failing linting. 
+- [x] Test pipeline: photo of a failing linting. 
 
 3. EKS. 
-- [ ] Create a cluster: photo that it works manually
-- [ ] Instances name rolling deployment
-- [ ] The deployment works.
+- [x] Create a cluster: photo that it works manually
+- [x] Instances name rolling deployment
+- [x] The deployment works.
 
 ## Motivation
 
-I've done software projects in hackathons or just project during college. I've realized that implementing automating pipelines for continuous integration and continuous deplyoment guarantees a quality of the software product that cannot be provided by manually assessing this quality. So, the aim of this project is fitting [the rubric of the capstone project](https://review.udacity.com/#!/rubrics/2577/view), with the final objective of creates a code that allows to easily automates this integration and deployment of a software repo in github. In general, a software is been identified to propose a certain ***value***. Then automating piepline should be provided (see image). Looking at the big picture, only three pieces are implemented in this repo:
+I've done software projects in hackathons or just project during college. I've realized that implementing automating pipelines for continuous integration and continuous deplyoment guarantees a quality of the software product that cannot be provided by manually assessing this quality. So, the aim of this project is fitting [the rubric of the capstone project](https://review.udacity.com/#!/rubrics/2577/view), with the final objective of creates a code that allows to easily automates this integration and deployment of a software repo in github. In general, a software is been identified to propose a certain ***value***. Then automating piepline should be provided (see image). Looking at the big picture, this repo includes the files of jenkins x + the pipeline overrided.
 
 ![software product pipeline big picture](https://github.com/chanakaudaya/solutions-architecture-patterns/blob/master/vendor-neutral/images/Enterprise-CICD-Pattern.png)
 
 Big picture from https://github.com/chanakaudaya/solutions-architecture-patterns.
 
-1- A ***jenkinsfile***. THere are many tools for implementing pipelines (as Jenkins, Travis CI, Circle CI, Gitlab. . .) In this repo it is proposed a jenkinsfile running in an ec2 instance. After setting an ec2 with jenkins, it is deployed Jenkins X. It is realized it offers certain better cabailities as gitops and this bukernetes orientation using helm charts. So, it is configure some Jenkins X environments, following their decoumentation architecture
+Under the hood this three componentes are managed by jenkins X:
+
+1- A ***jenkinsfile => now buildpacks***. THere are many tools for implementing pipelines (as Jenkins, Travis CI, Circle CI, Gitlab. . .) In this repo it is proposed a jenkinsfile running in an ec2 instance. After setting an ec2 with jenkins, it is deployed Jenkins X. It is realized it offers certain better cabailities as gitops and this bukernetes orientation using helm charts. So, it is configure some Jenkins X environments, following their decoumentation architecture
 
 ![Jenkins X](https://jenkins-x.io/images/jx-arch.png)
 
@@ -81,8 +83,7 @@ jx create quickstart --git-public
 
 And choose python-http
 
-Then is check that the environments work and than the application is running
-
+Then is check that the environments work and than the application is running. It is create a quickstart sample, then put a photo of the activities to see thei
 
 ```
 jx get activities
@@ -92,8 +93,8 @@ jx get application
 
 ## 2. Usage
 
-THe problem is that as jenkins X follows the serverless paradigm, I dpeloyed deck isntead of jenkins X blue Ocean as it is serverles  cost less resources.
-
+When modified anything in the repo, a deplyoment is created.
+ 
 
 
 ## 3. Contributing
@@ -109,15 +110,27 @@ Plan what your pipeline will look like.
 Decide which options you will include in your Continuous Integration phase.
 Use Jenkins.
 
+
+```
+buildPack: javascript
+pipelineConfig:
+ pipelines:
+  release:
+   build:
+    preSteps:
+    - sh: npm run lint
+      name: jslint
+```
+
+
 Pick a deployment type - either rolling deployment or blue/green deployment.
 
 For the Docker application you can either use an application which you come up with, or use an open-source application pulled from the Internet, or if you have no idea, you can use an Nginx “Hello World, my name is (student name)” application.
 
+
 #### Step 2: Use Jenkins, and implement blue/green or rolling deployment.
 
 Create your Jenkins master box with either Jenkins and install the plugins you will need.
-
-*** I installed jenkins, but discovered this git ops features of jenkins X, may more valuable to show, so I continue the pipelines tuning with jenkins X ***
 
 Set up your environment to which you will deploy code.
 
@@ -151,7 +164,6 @@ Linting screenshot to show the Linter working properly.
 
 ***After creating the qucikstart applcaition is copy and modified, and then applied:***
 
-
 ```
 jx import
 ```
@@ -174,15 +186,15 @@ Take a screenshot of the Jenkins pipeline showing deployment and a screenshot of
 
 These are the repos of the three other environments:
 
-https://github.com/ablazleon/environment-jxgke2-staging
-https://github.com/ablazleon/environment-jxgke2-production
-https://github.com/ablazleon/environment-jxgke2-dev
+https://github.com/ablazleon/environment-jxgke4-staging
+https://github.com/ablazleon/environment-jxgke4-production
+https://github.com/ablazleon/environment-jxgke4-dev
 
 - [ ] ***Use image repository to store Docker images*** The project uses a centralized image repository to manage images built in the project. After a clean build, images are pushed to the repository.
 
-Yes, I set my dockerhub account for this
+Yes, I set this images in gcr to public:
 
-https://hub.docker.com/search?q=ablazleon&type=image
+https://gcr.io/envjenkinsk8udacitycapstone/mynodejx
 
 #### Build Docker Container
 
@@ -193,12 +205,20 @@ What I do is override ![the pipeline.yml](https://github.com/jenkins-x-buildpack
 
 - [ ] ***Build a Docker container in a pipeline*** The project takes a Dockerfile and creates a Docker container in the pipeline.
 
+
+
 #### Successful Deployment
 
 
 - [ ] ***The Docker container is deployed to a Kubernetes cluster:*** The cluster is deployed with CloudFormation or Ansible. This should be in the source code of the student’s submission.
-As the evolution of jenkins, jenkins X seems that automates more the relation to k8s, it is used Jenkins X. Firstly, I followed this recommendation for setting JX with EKS but i found this error after booting. 
+
+Jenkins X deploy a kuberntes cluster, using cloud formation under the hood. I fisrt deploy  it on eks, but then switched to gke, as I ran teh eks cluster a couple days and it costs me 17$, when I have 100$ first credits in gke.
+
 - [ ] ***Use Blue/Green Deployment or a Rolling Deployment successfully*** The project performs the correct steps to do a blue/green or a rolling deployment into the environment selected. Student demonstrates the successful completion of chosen deployment methodology with screenshots.
+
+As it can be seen in the images of ```jx promote``` after the application is tested that works on the dev environment is promote to production. Then, it can be seen that with   
+```kubectl get po```, that images updated in a rolling fashion
+
 
 #### Bonus
 
