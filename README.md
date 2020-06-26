@@ -131,14 +131,18 @@ Use Jenkins.
 
 
 ```
-buildPack: javascript
+buildPack: python
 pipelineConfig:
  pipelines:
   release:
    build:
-    preSteps:
-    - sh: npm run lint
-      name: jslint
+    steps:
+    - sh: pip install --upgrade pip
+      name: upgrade
+    - sh: pip install -r requirements.txt
+      name: install
+    - sh: pylint --disable=R,C,W1203 app.py
+      name: lint
 ```
 
 
@@ -153,6 +157,7 @@ Create your Jenkins master box with either Jenkins and install the plugins you w
 
 Set up your environment to which you will deploy code.
 
+It is taken advantage of the [rolling updates](https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/) native of kubernetes deplyoments, to implement a rolling deplyoment. It is checked that the versions of the pod, are rolling when promote a change. So first, it is promoted a version 1, and then access witha  curl it is cehcked that it is a progressive cahgne between them.
 
 #### Step 3: Pick AWS Kubernetes as a Service, or build your own Kubernetes cluster.
 Use Ansible or CloudFormation to build your “infrastructure”; i.e., the Kubernetes Cluster.
