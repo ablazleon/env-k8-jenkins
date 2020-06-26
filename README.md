@@ -2,6 +2,7 @@
 
 In this project I have built a CI/CD pipeline for a microservices application for different deployment strategies. This is my proposal of capstone project of the Udacity Cloud DevOps Nanodegree Program.
 
+## What I learnt, what I'm most proud of and which problems I had
 ## 1. Installation
 ## 2. Usage
 ## 3. Contributing
@@ -9,6 +10,7 @@ In this project I have built a CI/CD pipeline for a microservices application fo
 ### a. Requirement steps
 ### b. Roadmap
 ### c. Rubric
+
 
 ---------------
 
@@ -28,7 +30,7 @@ In this project I have built a CI/CD pipeline for a microservices application fo
 - [x] Instances name rolling deployment
 - [x] The deployment works.
 
-## Motivation
+## Motivation: What I learnt, what I'm most proud of and which problems I had
 
 I've done software projects in hackathons or just project during college. I've realized that implementing automating pipelines for continuous integration and continuous deplyoment guarantees a quality of the software product that cannot be provided by manually assessing this quality. So, the aim of this project is fitting [the rubric of the capstone project](https://review.udacity.com/#!/rubrics/2577/view), with the final objective of creates a code that allows to easily automates this integration and deployment of a software repo in github. In general, a software is been identified to propose a certain ***value***. Then automating piepline should be provided (see image). Looking at the big picture, this repo includes the files of jenkins x + the pipeline overrided.
 
@@ -50,6 +52,23 @@ Install -> lint -> test -> Rolling deployments (on certain environments)
 
 3- ***AWS***: to adapat the demand, certain cloud services are used.
 
+### What I learnt
+
+I discovered how to automate quality assurance, with so much help of the differnet referneces i found (see references)
+
+### What I'm most proud of
+
+The easy way was to use Jenkins, but I decided to use the tool that is started to been used ritgh now, Jenkins X
+
+### What problem I had
+
+I had many problems, I was the entire week dealing with them, while I was learning. I highlight 5:
+
+1. The first one was realizing that the arquitecture that Jenkisn X proposed was most automated in contnouos delivery than with Jenkins. As the Kuberntes deployments I will have to them on my own. So make decide if it was worth it trying Jnekins X or doing it in with Jenkins, wiht more documentation and help inthe last option. BUt I decided teh first, to try to innovate.
+2. Then, I discovered there was two ways of installing Jenkins X, but the one in which the pipeline works was the one that does not inlcude a blue ocean dashboard but a CLI one.
+3. THen, I had to learn which is the differnece between a Jenkins and a Jenkins X pipeline. Doing this I deployed so many cluster that my AWS cost raised up to 17&
+4. Them, I discovered which are the benefits of helm and skaffold
+5. But I was only able to do an audit as the lint didn't work for me.
 
 
 -------------------
@@ -144,9 +163,6 @@ It should create the EC2 instances (if you are building your own), set the corre
 
 As a final step, the Kubernetes cluster will need to be initialized. The Kubernetes cluster initialization can either be done by hand, or with Ansible/Cloudformation at the student’s discretion.
 
-*** But finally, I discovered Jenkins X had a cli command to created this cluster. I tried creating one in EKS, but i was unable.***
-
-![EKS failed when linking](https://github.com/ablazleon/env-k8-jenkins/blob/master/eks/ProblemEKS.png)
 
 #### Step 4: Build your pipeline
 
@@ -186,35 +202,36 @@ Take a screenshot of the Jenkins pipeline showing deployment and a screenshot of
 
 These are the repos of the three other environments:
 
-https://github.com/ablazleon/environment-jxgke4-staging
-https://github.com/ablazleon/environment-jxgke4-production
-https://github.com/ablazleon/environment-jxgke4-dev
+https://github.com/ablazleon/environment-jxgke6-staging
+https://github.com/ablazleon/environment-jxgke6-production
+https://github.com/ablazleon/environment-jxgke6-dev
 
 - [ ] ***Use image repository to store Docker images*** The project uses a centralized image repository to manage images built in the project. After a clean build, images are pushed to the repository.
 
 Yes, I set this images in gcr to public:
 
-https://gcr.io/envjenkinsk8udacitycapstone/mynodejx
+https://gcr.io/envjenkinsk8udacitycapstone/mynodejsjx
 
 #### Build Docker Container
 
 
-- [ ] ***Execute linting step in code pipeline:*** Code is checked against a linter as part of a Continuous Integration step (demonstrated w/ two screenshots).
+- [x] ***Execute linting step in code pipeline:*** Code is checked against a linter as part of a Continuous Integration step (demonstrated w/ two screenshots).
 
 What I do is override [the pipeline.yml](https://github.com/jenkins-x-buildpacks/jenkins-x-kubernetes/blob/master/packs/python/pipeline.yaml), with the desire steps in jenkins-x.yml on the repo. 
 
-- [ ] ***Build a Docker container in a pipeline*** The project takes a Dockerfile and creates a Docker container in the pipeline.
+- [x] ***Build a Docker container in a pipeline*** The project takes a Dockerfile and creates a Docker container in the pipeline.
 
+In this last inherited pipeline, the docker container is automaticallty created.
 
 
 #### Successful Deployment
 
 
-- [ ] ***The Docker container is deployed to a Kubernetes cluster:*** The cluster is deployed with CloudFormation or Ansible. This should be in the source code of the student’s submission.
+- [x] ***The Docker container is deployed to a Kubernetes cluster:*** The cluster is deployed with CloudFormation or Ansible. This should be in the source code of the student’s submission.
 
 Jenkins X deploy a kuberntes cluster, using cloud formation under the hood. I fisrt deploy  it on eks, but then switched to gke, as I ran teh eks cluster a couple days and it costs me 17$, when I have 100$ first credits in gke.
 
-- [ ] ***Use Blue/Green Deployment or a Rolling Deployment successfully*** The project performs the correct steps to do a blue/green or a rolling deployment into the environment selected. Student demonstrates the successful completion of chosen deployment methodology with screenshots.
+- [x] ***Use Blue/Green Deployment or a Rolling Deployment successfully*** The project performs the correct steps to do a blue/green or a rolling deployment into the environment selected. Student demonstrates the successful completion of chosen deployment methodology with screenshots.
 
 As it can be seen in the images of ```jx promote``` after the application is tested that works on the dev environment is promote to production. Then, it can be seen that with   
 ```kubectl get po```, that images updated in a rolling fashion
